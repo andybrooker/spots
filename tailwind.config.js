@@ -1,18 +1,101 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      transparent: "transparent",
+      black: "#000",
+      white: "#fff",
+      gray: {
+        1: "#fcfcfc",
+        2: "#f8f8f8",
+        3: "#f3f3f3",
+        4: "#ededed",
+        5: "#e8e8e8",
+        6: "#e2e2e2",
+        7: "#dbdbdb",
+        8: "#c7c7c7",
+        9: "#8f8f8f",
+        10: "#858585",
+        11: "#6f6f6f",
+        12: "#171717",
+      },
+      blue: {
+        1: "#fbfdff",
+        2: "#f5faff",
+        3: "#edf6ff",
+        4: "#e1f0ff",
+        5: "#cee7fe",
+        6: "#b7d9f8",
+        7: "#96c7f2",
+        8: "#5eb0ef",
+        9: "#0091ff",
+        10: "#0081f1",
+        11: "#006adc",
+        12: "#00254d",
+      },
+      teal: {
+        1: "#fafefd",
+        2: "#f1fcfa",
+        3: "#e7f9f5",
+        4: "#d9f3ee",
+        5: "#c7ebe5",
+        6: "#afdfd7",
+        7: "#8dcec3",
+        8: "#53b9ab",
+        9: "#12a594",
+        10: "#0e9888",
+        11: "#067a6f",
+        12: "#10302b",
+      },
+      amber: {
+        1: "#fefdfb",
+        2: "#fff9ed",
+        3: "#fff4d5",
+        4: "#ffecbc",
+        5: "#ffe3a2",
+        6: "#ffd386",
+        7: "#f3ba63",
+        8: "#ee9d2b",
+        9: "#ffb224",
+        10: "#ffa01c",
+        11: "#ad5700",
+        12: "#4e2009",
+      },
+      bronze: {
+        1: "#fdfcfc",
+        2: "#fdf8f6",
+        3: "#f8f1ee",
+        4: "#f2e8e4",
+        5: "#eaddd7",
+        6: "#e0cec7",
+        7: "#d1b9b0",
+        8: "#bfa094",
+        9: "#a18072",
+        10: "#977669",
+        11: "#846358",
+        12: "#43302b",
+      },
+    },
     extend: {
+      boxShadow: ({ theme }) => ({
+        card: "0px 0px 0px 0.5px rgba(0, 0, 0, 0.10), 0px 2px 5px 0px rgba(0, 0, 0, 0.10), 0px 9px 9px 0px rgba(0, 0, 0, 0.09), 0px 20px 12px 0px rgba(0, 0, 0, 0.05), 0px 36px 14px 0px rgba(0, 0, 0, 0.01), 0px 56px 16px 0px rgba(0, 0, 0, 0.00)",
+        filter:
+          "0px 0px 0px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.10), 0px 4px 4px 0px rgba(0, 0, 0, 0.09), 0px 8px 5px 0px rgba(0, 0, 0, 0.05), 0px 15px 6px 0px rgba(0, 0, 0, 0.01), 0px 23px 6px 0px rgba(0, 0, 0, 0.00), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.10)",
+        filterFocus: `0px 0px 0px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.10), 0px 4px 4px 0px rgba(0, 0, 0, 0.09), 0px 8px 5px 0px rgba(0, 0, 0, 0.05), 0px 15px 6px 0px rgba(0, 0, 0, 0.01), 0px 23px 6px 0px rgba(0, 0, 0, 0.00), 0px 0px 0px 2px ${theme(
+          "colors.blue.6"
+        )}`,
+      }),
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
   plugins: [],
-}
+};

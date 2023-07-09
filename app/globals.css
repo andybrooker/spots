@@ -17,11 +17,30 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: black;
+  background-color: white;
+}
+
+.nw-wedge {
+  transform: skew(310deg) rotate(-20deg);
+}
+
+.e-wedge {
+  transform: skew(330deg) rotate(240deg);
+}
+
+.se-wedge {
+  transform: rotate(180deg);
+}
+
+.sw-wedge {
+  transform: skew(340deg) rotate(90deg);
+}
+
+.w-wedge {
+  transform: skew(320deg) rotate(380deg);
+}
+
+.n-wedge {
+  transform: skew(330deg) rotate(300deg);
 }

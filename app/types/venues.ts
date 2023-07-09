@@ -1,0 +1,1 @@
+export const venues = ["pub", "coffee", "restaurant", "bakery"] as const;

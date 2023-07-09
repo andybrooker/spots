@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "The Three Johns",
+        "area": "Angel",
+        "postcode": "N1 9PF",
+        "venue": "pub"
+    },
+    {
+        "id": 2,
+        "name": "Cable",
+        "area": "Notting Hill",
+        "postcode": "W11 2EE",
+        "venue": "coffee"
+    },
+    {
+        "id": 3,
+        "name": "Theo's",
+        "area": "Camberwell",
+        "postcode": "SE5 8SY",
+        "venue": "restaurant"
+    },
+    {
+        "id": 4,
+        "name": "Arôme Bakery",
+        "area": "Covent Garden",
+        "postcode": "WC2H 9QJ",
+        "venue": "bakery"
+    }
+]
