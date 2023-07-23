@@ -1,0 +1,174 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.1090489862247176, 51.532894516125396]
+            },
+            "properties": {
+                "id": 1,
+                "name": "The Three Johns",
+                "area": "Angel",
+                "postcode": "N1 9PF",
+                "venue": "pub"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.20572894717810197, 51.515716384398694]
+            },
+            "properties": {
+                "id": 2,
+                "name": "Cable",
+                "area": "Notting Hill",
+                "postcode": "W11 2EE",
+                "venue": "coffee"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.09061778951039808, 51.47382842596235]
+            },
+            "properties": {
+                "id": 3,
+                "name": "Theo's",
+                "area": "Camberwell",
+                "postcode": "SE5 8SY",
+                "venue": "restaurant"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.12601011655281077, 51.51316680806956]
+            },
+            "properties": {
+                "id": 4,
+                "name": "Arôme Bakery",
+                "area": "Covent Garden",
+                "postcode": "WC2H 9QJ",
+                "venue": "bakery"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.20954977230194743, 51.52142415903721]
+            },
+            "properties": {
+                "id": 5,
+                "name": "Flying Horse Coffee",
+                "area": "Notting Hill",
+                "postcode": "W10 5PS",
+                "venue": "coffee"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.10063583366463995, 51.53275710486868]
+            },
+            "properties": {
+                "id": 6,
+                "name": "Plaquemine Lock",
+                "area": "Angel",
+                "postcode": "N1 8LB",
+                "venue": "restaurant"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.10350815880989099,51.478612629700734]
+            },
+            "properties": {
+                "id": 7,
+                "name": "KoKoDoo",
+                "area": "Camberwell",
+                "postcode": "SE5 0SU",
+                "venue": "restaurant"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.1290949164810834, 51.46443956914497]
+            },
+            "properties": {
+                "id": 8,
+                "name": "The Falcon",
+                "area": "Clapham North",
+                "postcode": "SW4 7SQ",
+                "venue": "pub"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.10922401790452374, 51.52019255104682]
+            },
+            "properties": {
+                "id": 9,
+                "name": "Prufrock Coffee",
+                "area": "Farringdon",
+                "postcode": "EC1N 7TE",
+                "venue": "coffee"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.0756402292593754, 51.52168933183092]
+            },
+            "properties": {
+                "id": 10,
+                "name": "Commercial Tavern",
+                "area": "Shoreditch",
+                "postcode": "E1 6NU",
+                "venue": "pub"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.133848233670172, 51.51230875905492]
+            },
+            "properties": {
+                "id": 11,
+                "name": "Paradise",
+                "area": "Soho",
+                "postcode": "W1D 7PW",
+                "venue": "restaurant"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.10479666066033314, 51.50572009611756]
+            },
+            "properties": {
+                "id": 11,
+                "name": "Seabird",
+                "area": "Waterloo",
+                "postcode": "SE1 8NY",
+                "venue": "restaurant"
+            }
+        }
+    ]
+}
+

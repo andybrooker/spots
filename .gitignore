@@ -14,7 +14,6 @@
 
 # production
 /build
-/app/data/spots.json
 
 
 # misc
