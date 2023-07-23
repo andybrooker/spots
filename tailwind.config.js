@@ -89,11 +89,15 @@ module.exports = {
         filterFocus: `0px 0px 0px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.10), 0px 4px 4px 0px rgba(0, 0, 0, 0.09), 0px 8px 5px 0px rgba(0, 0, 0, 0.05), 0px 15px 6px 0px rgba(0, 0, 0, 0.01), 0px 23px 6px 0px rgba(0, 0, 0, 0.00), 0px 0px 0px 2px ${theme(
           "colors.blue.6"
         )}`,
+        innerFilterFocus: `inset 0 0 0 2px ${theme("colors.blue.6")}`,
       }),
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)"],
       },
     },
   },

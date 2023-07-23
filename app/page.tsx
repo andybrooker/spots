@@ -1,6 +1,5 @@
-import { Chip } from "./components/Chip";
-import { z } from "zod";
-import { SpotProps, spotSchema } from "./data/schema";
+import { Map, MapProvider } from "./components/Map";
+import { spotsSchema } from "./data/schema";
 import { promises as fs } from "fs";
 import path from "path";
 import {
@@ -8,6 +7,8 @@ import {
   VenueFilters,
   PostcodeWheel,
 } from "./components/FilterDropdown";
+import { Logo } from "./components/Logo";
+import { SpotsList } from "./components/SpotsList";
 
 function getPostcode(postcode: string) {
   const match = postcode.match(/^[^\d]+/);
@@ -23,19 +24,21 @@ async function getSpots({
     path.join(process.cwd(), "app/data/spots.json")
   );
 
-  const spots = z.array(spotSchema).parse(JSON.parse(data.toString()));
+  const spots = spotsSchema.parse(JSON.parse(data.toString()));
 
   let filteredSpots = spots;
 
   if (typeof searchParams.venue === "string") {
     const venues = searchParams.venue.split(",");
-    filteredSpots = filteredSpots.filter((spot) => venues.includes(spot.venue));
+    filteredSpots.features = filteredSpots.features.filter((feature) =>
+      venues.includes(feature.properties.venue)
+    );
   }
 
   if (typeof searchParams.postcode === "string") {
     const postcodes = searchParams.postcode.split(",");
-    filteredSpots = filteredSpots.filter((spot) =>
-      postcodes.includes(getPostcode(spot.postcode))
+    filteredSpots.features = filteredSpots.features.filter((feature) =>
+      postcodes.includes(getPostcode(feature.properties.postcode))
     );
   }
 
@@ -50,43 +53,40 @@ export default async function Home({
   const spots = await getSpots({ searchParams });
 
   return (
-    <div className="flex gap-1.5">
-      <div className="max-w-xs p-1.5 flex flex-col gap-3 w-full">
-        {spots.map((spot) => (
-          <Spot
-            key={spot.id}
-            id={spot.id}
-            name={spot.name}
-            venue={spot.venue}
-            postcode={spot.postcode}
-            area={spot.area}
-          />
-        ))}
+    <MapProvider locations={spots}>
+      <div className="flex h-full">
+        <div className="absolute p-9 z-20 drop-shadow-xl">
+          <Logo />
+        </div>
+        <div className="fade max-w-sm p-9 w-full h-screen max-h-screen z-10 overflow-scroll -scale-x-100">
+          <div className="flex gap-9 flex-col -scale-x-100">
+            <div className="flex flex-col gap-3 h-full z-10 pt-16 pb-8">
+              <SpotsList locations={spots} />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex p-9 gap-2.5 w-full justify-end h-fit z-10">
+          <FilterDropdown
+            label="Filter by Postcode"
+            filterValue="postcode"
+            align="center"
+            sideOffset={12}
+          >
+            <PostcodeWheel />
+          </FilterDropdown>
+          <FilterDropdown
+            filterValue="venue"
+            label="Filter by Type"
+            align="start"
+            sideOffset={6}
+          >
+            <VenueFilters />
+          </FilterDropdown>
+        </div>
+
+        <Map />
       </div>
-      <div className="p-1.5">
-        <FilterDropdown label="Filter by Type">
-          <VenueFilters />
-        </FilterDropdown>
-      </div>
-      <div className="p-1.5">
-        <FilterDropdown label="Filter by Postcode">
-          <PostcodeWheel />
-        </FilterDropdown>
-      </div>
-    </div>
+    </MapProvider>
   );
 }
-
-export const Spot = ({ id, name, area, postcode, venue }: SpotProps) => {
-  return (
-    <div className="p-3 flex items-center text-sm justify-between self-stretch rounded-md bg-white shadow-card">
-      <div className="tracking-tighter font-[450]">
-        <div>{name}</div>
-        <div className="text-gray-10">
-          {area}, {postcode}
-        </div>
-      </div>
-      <Chip venue={venue} />
-    </div>
-  );
-};

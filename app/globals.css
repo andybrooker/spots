@@ -19,6 +19,8 @@
 body {
   color: black;
   background-color: white;
+  height: 100vh;
+  width: 100vw;
 }
 
 .nw-wedge {
@@ -43,4 +45,62 @@ body {
 
 .n-wedge {
   transform: skew(330deg) rotate(300deg);
+}
+
+.marker {
+  /* @apply border-2 border-transparent border-solid shadow-filter;
+  --marker-fg: theme(colors.blue.1);
+  --marker-bg: theme(colors.blue.1);
+  --marker-border: theme(colors.blue.1);
+  background: linear-gradient(to bottom, var(--marker-fg), var(--marker-bg))
+      padding-box,
+    linear-gradient(to bottom, var(--marker-border), var(--marker-border))
+      border-box; */
+}
+
+[data-marker="pub"] {
+  background-image: url(../public/pub.svg);
+}
+
+[data-marker="restaurant"] {
+  background-image: url(../public/restaurant.svg);
+}
+
+[data-marker="bakery"] {
+  background-image: url(../public/bakery.svg);
+}
+
+[data-marker="coffee"] {
+  background-image: url(../public/coffee.svg);
+}
+
+.fade {
+  mask-image: linear-gradient(
+    transparent 5%,
+    black 15%,
+    black 90%,
+    transparent 99%
+  );
+}
+
+.mapboxgl-popup-content {
+  @apply !font-sans !shadow-card !p-3 !rounded-md;
+  font-weight: 450;
+  font-size: 14px;
+  padding-right: 48px !important;
+}
+
+.mapboxgl-popup-close-button {
+  @apply !p-3 h-full;
+  border-radius: 0 6px 6px 0 !important;
+}
+
+.mapboxgl-popup-close-button:focus {
+  outline: none;
+  @apply !shadow-innerFilterFocus;
+}
+
+.mapboxgl-popup-close-button:focus-visible {
+  outline: none;
+  @apply !shadow-innerFilterFocus;
 }
