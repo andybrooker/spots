@@ -126,7 +126,7 @@ export const PostcodeWheel = () => {
     <div>
       <div className="relative w-[240px] h-[240px] bg-gray-3 shadow-filter rounded-full p-0.5">
         <Compass />
-        <div className="w-full h-full relative overflow-clip rounded-full">
+        <div className="w-full h-full relative overflow-hidden rounded-full">
           <ToggleItem
             id="E"
             className="absolute h-[200px] w-[200px] bottom-[50%] right-[50%] transition-colors transform rotate-[120deg] skew-x-[30deg] origin-[100%_100%] overflow-hidden "
