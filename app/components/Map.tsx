@@ -72,17 +72,16 @@ export const MapProvider: React.FC<{
         });
       });
 
-      const popup = new mapboxgl.Popup({ offset: 32 })
+      const popup = new mapboxgl.Popup({ offset: 32, closeOnClick: false })
         .setLngLat(feature.geometry.coordinates)
         .setHTML(
           `
-        <div class="name tracking-tighter">${feature.properties.name}</div>
-        <div class="text-gray-10 tracking-tighter">
-          ${feature.properties.area}, ${feature.properties.postcode}
-        </div>
-`
-        )
-        .addTo(map?.current);
+                <div class="name tracking-tighter">${feature.properties.name}</div>
+                <div class="text-gray-10 tracking-tighter">
+                  ${feature.properties.area}, ${feature.properties.postcode}
+                </div>
+        `
+        );
 
       const marker = new mapboxgl.Marker({ element: el, offset: [0, 0] })
         .setLngLat(feature.geometry.coordinates)
