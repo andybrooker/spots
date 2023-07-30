@@ -1,4 +1,5 @@
 import { Map, MapProvider } from "./components/Map";
+import dynamic from "next/dynamic";
 import { spotsSchema } from "./data/schema";
 import { promises as fs } from "fs";
 import path from "path";
@@ -9,6 +10,8 @@ import {
 } from "./components/FilterDropdown";
 import { Logo } from "./components/Logo";
 import { SpotsList } from "./components/SpotsList";
+import { Drawer } from "vaul";
+import { MobileDrawer } from "./components/Drawer";
 
 function getPostcode(postcode: string) {
   const match = postcode.match(/^[^\d]+/);
@@ -55,10 +58,10 @@ export default async function Home({
   return (
     <MapProvider locations={spots}>
       <div className="flex h-full">
-        <div className="absolute p-9 z-20 drop-shadow-xl">
+        <div className="absolute py-8 px-6 sm:px-9 sm:py-9 z-20 drop-shadow-xl">
           <Logo />
         </div>
-        <div className="fade max-w-sm p-9 w-full h-screen max-h-screen z-10 overflow-scroll -scale-x-100">
+        <div className="hidden sm:block fade max-w-sm p-9 w-full h-screen max-h-screen z-10 overflow-scroll -scale-x-100">
           <div className="flex gap-9 flex-col -scale-x-100">
             <div className="flex flex-col gap-3 h-full z-10 pt-16 pb-8">
               <SpotsList locations={spots} />
@@ -66,14 +69,14 @@ export default async function Home({
           </div>
         </div>
 
-        <div className="flex p-9 gap-2.5 w-full justify-end h-fit z-10">
+        <div className="hidden sm:flex p-9 gap-2.5 w-full justify-end h-fit z-10">
           <FilterDropdown
             label="Filter by Postcode"
             filterValue="postcode"
             align="center"
             sideOffset={12}
           >
-            <PostcodeWheel />
+            <PostcodeWheel mobile={false} />
           </FilterDropdown>
           <FilterDropdown
             filterValue="venue"
@@ -81,10 +84,13 @@ export default async function Home({
             align="start"
             sideOffset={6}
           >
-            <VenueFilters />
+            <VenueFilters mobile={false} />
           </FilterDropdown>
         </div>
 
+        <div className="block sm:hidden">
+          <MobileDrawer spots={spots} />
+        </div>
         <Map />
       </div>
     </MapProvider>

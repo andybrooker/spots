@@ -64,8 +64,20 @@ const FilterString = ({ filterValues }: { filterValues: string[] }) => {
   }
 };
 
-export const VenueFilters = () => {
+export const VenueFilters = ({ mobile = false }: { mobile: boolean }) => {
   const { filterValues, clearFilters } = useFilterValue("venue");
+
+  if (mobile) {
+    return (
+      <div className="p-1.5">
+        {venues.map((venue) => (
+          <CheckboxItem key={venue} id={venue}>
+            <Chip venue={venue} />
+          </CheckboxItem>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <form className="shadow-filter rounded-md bg-white flex flex-col tracking-tighter font-[450] w-fit">
@@ -119,7 +131,7 @@ const CheckboxItem = ({ id, children }: CheckboxItemProps) => {
   );
 };
 
-export const PostcodeWheel = () => {
+export const PostcodeWheel = ({ mobile = false }: { mobile: boolean }) => {
   const { filterValues, clearFilters } = useFilterValue("postcode");
 
   return (
@@ -193,7 +205,7 @@ export const PostcodeWheel = () => {
           </ToggleItem>
         </div>
       </div>
-      {filterValues.length > 0 && (
+      {!mobile && filterValues.length > 0 && (
         <div className="w-full flex justify-center">
           <button
             onClick={clearFilters}

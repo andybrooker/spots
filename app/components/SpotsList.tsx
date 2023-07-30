@@ -5,6 +5,7 @@ import { useMapContext } from "./Map";
 import { Chip } from "./Chip";
 import mapboxgl from "mapbox-gl";
 import { Inter } from "next/font/google";
+import { BottomSheetRef } from "react-spring-bottom-sheet";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +26,13 @@ type Feature = {
   geometry: Geometry;
 };
 
-export const SpotsList = ({ locations }: { locations: SpotsProps }) => {
+export const SpotsList = ({
+  locations,
+  bottomSheetRef,
+}: {
+  locations: SpotsProps;
+  bottomSheetRef?: React.RefObject<BottomSheetRef>;
+}) => {
   const { map, markers } = useMapContext();
 
   const flyToSpot = (geometry: Geometry) => {
@@ -59,6 +66,9 @@ export const SpotsList = ({ locations }: { locations: SpotsProps }) => {
   };
 
   const handleClick = (feature: Feature) => {
+    if (bottomSheetRef?.current) {
+      bottomSheetRef.current.snapTo(({ headerHeight }) => headerHeight);
+    }
     flyToSpot(feature.geometry);
     togglePopup(feature);
   };
@@ -67,7 +77,7 @@ export const SpotsList = ({ locations }: { locations: SpotsProps }) => {
     <>
       {locations.features.map((feature) => (
         <Spot
-          flyToSpot={() => handleClick(feature)}
+          handleClick={() => handleClick(feature)}
           key={feature.properties.id}
           id={feature.properties.id}
           name={feature.properties.name}
@@ -81,7 +91,7 @@ export const SpotsList = ({ locations }: { locations: SpotsProps }) => {
 };
 
 interface ExtendedSpotProps extends SpotProps {
-  flyToSpot: () => void;
+  handleClick: () => void;
 }
 
 export const Spot = ({
@@ -90,11 +100,11 @@ export const Spot = ({
   area,
   postcode,
   venue,
-  flyToSpot,
+  handleClick,
 }: ExtendedSpotProps) => {
   return (
     <div
-      onClick={flyToSpot}
+      onClick={handleClick}
       className="cursor-pointer p-3 flex items-center text-sm justify-between self-stretch rounded-md bg-white shadow-card"
     >
       <div className="tracking-tighter font-[450]">
