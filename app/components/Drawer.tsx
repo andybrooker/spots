@@ -33,7 +33,7 @@ const useWindowSize = () => {
 
 export const MobileDrawer = ({ spots }: { spots: SpotsProps }) => {
   const sheetRef = React.useRef<BottomSheetRef>(null);
-  const [showFilter, setShowFilter] = React.useState(true);
+  const [showFilter, setShowFilter] = React.useState(false);
   const { width } = useWindowSize();
 
   if (width > 640) {

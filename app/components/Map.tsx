@@ -63,7 +63,7 @@ export const MapProvider: React.FC<{
     for (const feature of locations.features) {
       const el = document.createElement("div");
       // Tailwind Classname
-      el.className = `h-[46px] w-[24px] marker drop-shadow-lg`;
+      el.className = `h-[32px] w-[22px] marker drop-shadow-lg`;
       el.setAttribute("data-marker", feature.properties.venue);
       el.addEventListener("click", () => {
         map.current?.flyTo({
@@ -72,7 +72,7 @@ export const MapProvider: React.FC<{
         });
       });
 
-      const popup = new mapboxgl.Popup({ offset: 32, closeOnClick: false })
+      const popup = new mapboxgl.Popup({ offset: 16, closeOnClick: false })
         .setLngLat(feature.geometry.coordinates)
         .setHTML(
           `

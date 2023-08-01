@@ -72,7 +72,7 @@ export const VenueFilters = ({ mobile = false }: { mobile: boolean }) => {
       <div className="p-1.5">
         {venues.map((venue) => (
           <CheckboxItem key={venue} id={venue}>
-            <Chip venue={venue} />
+            <Chip venue={venue} showBorder />
           </CheckboxItem>
         ))}
       </div>
@@ -84,7 +84,7 @@ export const VenueFilters = ({ mobile = false }: { mobile: boolean }) => {
       <div className="p-1.5">
         {venues.map((venue) => (
           <CheckboxItem key={venue} id={venue}>
-            <Chip venue={venue} />
+            <Chip venue={venue} showBorder={false} />
           </CheckboxItem>
         ))}
       </div>
