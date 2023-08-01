@@ -2,10 +2,10 @@ import { venues } from "../types/venues";
 
 export type ChipProps = {
   venue: (typeof venues)[number];
-  showBorder: boolean;
+  showBorder?: boolean;
 };
 
-export const Chip = ({ venue, showBorder }: ChipProps) => {
+export const Chip = ({ venue, showBorder = false }: ChipProps) => {
   let color: string;
   let backgroundColor: string;
   let border: string;
