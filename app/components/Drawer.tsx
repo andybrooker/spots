@@ -74,8 +74,9 @@ export const MobileDrawer = ({ spots }: { spots: SpotsProps }) => {
   );
 };
 
-const Drawer = ({ children, sheetRef, numSpots }: DrawerProps) => {
+const Drawer = ({ children, sheetRef }: DrawerProps) => {
   const [open, setOpen] = React.useState(false);
+  const [opacity, setOpacity] = React.useState(1);
 
   React.useEffect(() => {
     setTimeout(() => setOpen(true), 500);
@@ -88,10 +89,23 @@ const Drawer = ({ children, sheetRef, numSpots }: DrawerProps) => {
       open={open}
       blocking={false}
       expandOnContentDrag
+      onSpringStart={() => {
+        console.log("Transition from:", sheetRef?.current?.height);
+        requestAnimationFrame(() => {
+          if (sheetRef?.current?.height === window?.innerHeight) {
+            setOpacity(0);
+          } else {
+            setOpacity(1);
+          }
+        });
+      }}
       header={
         <div className="flex items-center w-full justify-center my-4">
-          <div className="rounded-full p-1.5 w-fit flex justify-center items-center text-sm tracking-tighter font-[450] py-1 px-2 bg-white border border-gray-5 text-gray-12">
-            {numSpots} Spots
+          <div
+            style={{ opacity: opacity }}
+            className="shine transition-opacity duration-500 rounded-full p-1.5 w-fit flex justify-center items-center text-sm tracking-tighter font-[450] py-1 px-2 text-gray-11"
+          >
+            Discover your next favourite spot
           </div>
         </div>
       }

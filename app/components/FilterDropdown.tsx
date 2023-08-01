@@ -138,10 +138,10 @@ export const PostcodeWheel = ({ mobile = false }: { mobile: boolean }) => {
     <div>
       <div className="relative w-[240px] h-[240px] bg-gray-3 shadow-filter rounded-full p-0.5">
         <Compass />
-        <div className="w-full h-full relative overflow-hidden rounded-full">
+        <div className="w-full h-full relative overflow-clip rounded-full">
           <ToggleItem
             id="E"
-            className="absolute h-[200px] w-[200px] bottom-[50%] right-[50%] transition-colors transform rotate-[120deg] skew-x-[30deg] origin-[100%_100%] overflow-hidden "
+            className="absolute h-[200px] w-[200px] bottom-[50%] right-[50%] transition-colors transform rotate-[120deg] skew-x-[30deg] origin-[100%_100%] "
           >
             <div className="absolute e-wedge text-sm font-medium tracking-tighter bottom-[35px] right-[45px]">
               E
@@ -149,7 +149,7 @@ export const PostcodeWheel = ({ mobile = false }: { mobile: boolean }) => {
           </ToggleItem>
           <ToggleItem
             id="SE"
-            className="absolute h-[200px] w-[200px] bottom-[50%] right-[50%]  transition-colors transform rotate-[180deg] skew-x-[0deg] origin-[100%_100%] overflow-hidden "
+            className="absolute h-[200px] w-[200px] bottom-[50%] right-[50%]  transition-colors transform rotate-[180deg] skew-x-[0deg] origin-[100%_100%] "
           >
             <div className="absolute se-wedge text-sm font-medium tracking-tighter bottom-[45px] right-[55px]">
               SE
@@ -157,7 +157,7 @@ export const PostcodeWheel = ({ mobile = false }: { mobile: boolean }) => {
           </ToggleItem>
           <ToggleItem
             id="SW"
-            className="absolute h-[200px] w-[200px] bottom-[50%] right-[50%]  transition-colors  transform rotate-[270deg] skew-x-[20deg] origin-[100%_100%] overflow-hidden "
+            className="absolute h-[200px] w-[200px] bottom-[50%] right-[50%]  transition-colors  transform rotate-[270deg] skew-x-[20deg] origin-[100%_100%] "
           >
             <div className="absolute sw-wedge text-sm font-medium tracking-tighter bottom-[35px] right-[40px]">
               SW
@@ -165,14 +165,14 @@ export const PostcodeWheel = ({ mobile = false }: { mobile: boolean }) => {
           </ToggleItem>
           <ToggleItem
             id="W"
-            className="absolute h-[200px] w-[200px]  bottom-[50%] right-[50%] transition-colors  transform rotate-[-20deg] skew-x-[40deg] origin-[100%_100%] overflow-hidden "
+            className="absolute h-[200px] w-[200px]  bottom-[50%] right-[50%] transition-colors  transform rotate-[-20deg] skew-x-[40deg] origin-[100%_100%] "
           >
             <div className="absolute w-wedge  text-sm font-medium tracking-tighter bottom-[20px] right-[50px]">
               W
             </div>
           </ToggleItem>
           <ToggleItem
-            className=" absolute h-[200px] w-[200px] bottom-[50%] right-[50%] transition-colors  transform rotate-[20deg] skew-x-[50deg] origin-[100%_100%] overflow-hidden "
+            className=" absolute h-[200px] w-[200px] bottom-[50%] right-[50%] transition-colors  transform rotate-[20deg] skew-x-[50deg] origin-[100%_100%] "
             id="NW"
           >
             <div className="absolute nw-wedge  text-sm font-medium tracking-tighter bottom-[15px] right-[40px]">
@@ -181,7 +181,7 @@ export const PostcodeWheel = ({ mobile = false }: { mobile: boolean }) => {
           </ToggleItem>
           <ToggleItem
             id="N"
-            className="absolute h-[200px] w-[200px] bottom-[50%] right-[50%]  transition-colors transform rotate-[60deg] skew-x-[30deg] origin-[100%_100%] overflow-hidden "
+            className="absolute h-[200px] w-[200px] bottom-[50%] right-[50%]  transition-colors transform rotate-[60deg] skew-x-[30deg] origin-[100%_100%] "
           >
             <div className="absolute n-wedge text-sm font-medium tracking-tighter bottom-[35px] right-[45px]">
               N
