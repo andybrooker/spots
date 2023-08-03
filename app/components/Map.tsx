@@ -72,7 +72,11 @@ export const MapProvider: React.FC<{
         });
       });
 
-      const popup = new mapboxgl.Popup({ offset: 16, closeOnClick: false })
+      const popup = new mapboxgl.Popup({
+        offset: 16,
+        closeOnClick: false,
+        focusAfterOpen: false,
+      })
         .setLngLat(feature.geometry.coordinates)
         .setHTML(
           `
